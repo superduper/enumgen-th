@@ -1,0 +1,21 @@
+name:                enumgen-th
+version:             0.1.0.0
+synopsis:            Enum generation helpers
+description:         Please see README.md
+homepage:            http://github.com/superduper/enumgen-th#readme
+license:             BSD3
+license-file:        LICENSE
+author:              Viktor Miroshnikov
+maintainer:          me@vmiroshnikov.com
+copyright:           2015 Viktor Miroshnikov
+category:            Data
+build-type:          Simple
+cabal-version:       >=1.10
+
+library
+  exposed-modules:     Data.EnumGen.TH
+  hs-source-dirs:      src
+  default-language:    Haskell2010
+  build-depends:       base >= 4.7 && < 5
+                     , template-haskell
+                     , mtl
