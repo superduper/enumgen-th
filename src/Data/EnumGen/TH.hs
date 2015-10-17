@@ -20,7 +20,7 @@ $(mkEnum "Enumz" $ do
 Expands into:
 
 data Enumz = Alpha
-           | Bravo deriving (Show, Eq)
+           | Bravo deriving (Show, Eq, Enum)
 
 toEnumz :: Int -> Maybe Enumz
 toEnumz 1 = Just Alpha
@@ -50,7 +50,7 @@ enumKey k n = tell [(k,n)]
 topDeclaration :: String -> [EnumKey] -> Dec
 topDeclaration name es =
   let cons   = fmap (\(k, n) -> NormalC (mkName k) []) es
-      derivs = [(mkName "Show"), (mkName "Eq")]
+      derivs = [(mkName "Show"), (mkName "Eq"), (mkName "Enum")]
   in DataD [] (mkName name) [] cons derivs
 
 fromEnumFn :: String -> [EnumKey] -> [Dec]
